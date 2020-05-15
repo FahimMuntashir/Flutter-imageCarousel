@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,30 +13,28 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-
-  int photoIndex =0;
+  int photoIndex = 0;
   List<String> photos = [
     'images/alex-knight-2EJCSULRwC8-unsplash.jpg',
     'images/alexandre-debieve-FO7JIlwjOtU-unsplash.jpg',
     'images/christopher-gower-m_HRfLhgABo-unsplash.jpg',
     'images/marvin-meyer-SYTO3xs06fU-unsplash.jpg',
   ];
-  void _previousImage(){
+  void _previousImage() {
     setState(() {
-      photoIndex = photoIndex>0 ? photoIndex -1 : 0;
+      photoIndex = photoIndex > 0 ? photoIndex - 1 : 0;
     });
-}
+  }
 
-  void _nextImage(){
+  void _nextImage() {
     setState(() {
-      photoIndex = photoIndex < photos.length -1 ? photoIndex + 1 : photoIndex;
+      photoIndex = photoIndex < photos.length - 1 ? photoIndex + 1 : photoIndex;
     });
   }
 
@@ -48,7 +45,6 @@ class _HomePageState extends State<HomePage> {
         title: Text('Carousel'),
         centerTitle: true,
       ),
-
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -57,9 +53,29 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    image: DecorationImage(image: AssetImage(photos[photoIndex]), fit: BoxFit.cover)
-                  ),
+                      borderRadius: BorderRadius.circular(20.0),
+                      image: DecorationImage(
+                          image: AssetImage(photos[photoIndex]),
+                          fit: BoxFit.cover)),
+                  height: 400.0,
+                  width: 300.0,
+                ),
+              ],
+            ),
+          ),
+          Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                RaisedButton(
+
+                  child: Text('Previous'),
+                  onPressed: _previousImage,
+                ),
+                SizedBox(width: 10.0,),
+                RaisedButton(
+                  child: Text('Next'),
+                  onPressed: _nextImage,
                 ),
               ],
             ),
@@ -69,6 +85,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-
