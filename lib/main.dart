@@ -60,6 +60,12 @@ class _HomePageState extends State<HomePage> {
                   height: 400.0,
                   width: 300.0,
                 ),
+                Positioned(
+                  top: 375.0,
+                  left: 25.0,
+                  right: 25.0,
+                  child: SelectedPhoto(),
+                ),
               ],
             ),
           ),
@@ -83,5 +89,18 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+}
+
+
+class SelectedPhoto extends StatelessWidget {
+
+  final int numOfDots;
+  final int photoIndex;
+
+  SelectedPhoto({this.numOfDots,this.photoIndex});
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
