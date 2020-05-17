@@ -42,6 +42,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.grey,
         title: Text('Carousel'),
         centerTitle: true,
       ),
@@ -57,8 +58,8 @@ class _HomePageState extends State<HomePage> {
                       image: DecorationImage(
                           image: AssetImage(photos[photoIndex]),
                           fit: BoxFit.cover)),
-                  height: 400.0,
-                  width: 300.0,
+                  height: 500.0,
+                  width: 400.0,
                 ),
                 Positioned(
                   top: 375.0,
